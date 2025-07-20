@@ -1,11 +1,10 @@
-from telegram import Bot
-from telegram.ext import Updater, CommandHandler
+from telegram import Bot, Update
+from telegram.ext import Updater, CommandHandler, CallbackContext
 
-TOKEN = '7992952243:AAFMQd0wmWrUe6eCCOPC9ZpRBvzebvDZLyg'
-CHANNEL_ID = '@apostasdesportivas123'
+TOKEN = "7992952243:AAFMQd0wmWrUe6eCCOPC9ZpRBvzebvDZLyg"
 
-def start(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text="🤖 Bot de Apostas está online!")
+def start(update: Update, context: CallbackContext):
+    update.message.reply_text("🤖 Bot de Apostas está online!")
 
 def main():
     updater = Updater(TOKEN, use_context=True)
@@ -14,5 +13,5 @@ def main():
     updater.start_polling()
     updater.idle()
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
